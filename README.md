@@ -53,12 +53,20 @@ expo start
 
 3. Scan QR code from the device camera
 
-_My built version_:
+_My built version_ (Android only):
 
 Scan the following QR code:
+
+![QR Code](https://raw.githubusercontent.com/shehabeldeenibrahim/MoviesApp/master/QR.png?token=AOLURWN6ROTT7YQM72FFVCTAVWGN6)
 
 # Requirements
 
 - [Expo]('https://expo.io/')
 - [npm]('https://www.npmjs.com/')
 - [native-base]('https://nativebase.io/')
+
+# Screenshots
+
+## Android
+
+![Android ScreenShot](https://raw.githubusercontent.com/shehabeldeenibrahim/MoviesApp/master/AndroidSS.jpeg?token=AOLURWIXVFO6M2YMSR232CTAVWGHK)
