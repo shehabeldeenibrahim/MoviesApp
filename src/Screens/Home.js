@@ -143,7 +143,7 @@ export default function Home() {
         <Body>
           <Title
             style={{
-              fontSize: 50,
+              fontSize: 40,
               paddingLeft: "2%",
               color: "#dfdfdf",
               fontFamily: "Roboto",

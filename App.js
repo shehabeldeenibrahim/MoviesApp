@@ -3,6 +3,7 @@ import Home from "./src/Screens/Home";
 import { Root, View } from "native-base";
 import * as Font from "expo-font";
 import { ActivityIndicator } from "react-native-paper";
+import { SafeAreaView, StatusBar } from "react-native";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -28,22 +29,9 @@ export default function App() {
   }
   return (
     <Root>
-      <View
-        style={{
-          flex: 1,
+      <StatusBar hidden />
 
-          // Set content's vertical alignment.
-          justifyContent: "center",
-
-          // Set content's horizontal alignment.
-          alignItems: "center",
-
-          // Set hex color code here.
-          backgroundColor: "#111111",
-        }}
-      >
-        <Home />
-      </View>
+      <Home />
     </Root>
   );
 }

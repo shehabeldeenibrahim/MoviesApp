@@ -62,22 +62,28 @@ const MovieCard = ({ title, image_uri, date, overview, votes, language }) => {
         }}
       >
         <Card style={{ flex: 0, borderColor: bgColor, borderWidth: 0 }}>
-          <CardItem style={{ backgroundColor: bgColor, borderRadius: 0 }}>
+          <CardItem
+            style={{
+              backgroundColor: bgColor,
+              borderRadius: 0,
+            }}
+          >
             {/* Movie Image */}
             <Left>
               <Image
                 source={{
                   uri: image_uri,
                 }}
-                style={styles.image}
+                resizeMode={"cover"}
+                style={{ width: "100%", height: 300 }}
               />
             </Left>
-            <Right>
+            <Right style={{ width: "100%", minHeight: 300 }}>
               {/* Movie Brief Overview */}
               <Text style={styles.title}>{title}</Text>
               <Text style={styles.date}>{date}</Text>
               <ViewMoreText
-                numberOfLines={4}
+                numberOfLines={6}
                 renderViewMore={renderViewMore}
                 renderViewLess={renderViewLess}
                 textStyle={{ padding: "5%" }}
@@ -121,18 +127,20 @@ export default MovieCard;
 // Styles
 const styles = StyleSheet.create({
   image: {
-    height: 200,
-    width: 200,
-    flex: 1,
+    height: "100%",
+    width: "100%",
     marginBottom: "10%",
   },
   overview: {
     color: textColor2,
+    alignSelf: "flex-start",
+    textAlignVertical: "center",
   },
   date: {
     alignSelf: "flex-start",
     paddingLeft: "5%",
     color: textColor2,
+    // flex: 1,
   },
   title: {
     alignSelf: "flex-start",
