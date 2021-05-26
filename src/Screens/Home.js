@@ -1,4 +1,5 @@
 // Imports: Dependencies
+import { Body, Header, Title } from "native-base";
 import React, { useEffect, useState } from "react";
 import {
   ActivityIndicator,
@@ -9,6 +10,8 @@ import {
   View,
 } from "react-native";
 import MovieCard from "../Components/MovieCard";
+
+const bgColor = "#111111";
 
 // Base URI for images fetched
 const img_base_uri = "https://image.tmdb.org/t/p/w500/";
@@ -130,6 +133,27 @@ export default function Home() {
 
   return (
     <SafeAreaView style={styles.container}>
+      <Header
+        span
+        style={{
+          backgroundColor: bgColor,
+          borderColor: bgColor,
+        }}
+      >
+        <Body>
+          <Title
+            style={{
+              fontSize: 50,
+              paddingLeft: "2%",
+              color: "#dfdfdf",
+              fontFamily: "Roboto",
+              fontWeight: "600",
+            }}
+          >
+            My Movies
+          </Title>
+        </Body>
+      </Header>
       <FlatList
         // Data fetched
         data={data}
@@ -178,6 +202,7 @@ const styles = StyleSheet.create({
   container: {
     height: height,
     width: width,
+    backgroundColor: bgColor,
   },
   headerText: {
     fontFamily: "System",

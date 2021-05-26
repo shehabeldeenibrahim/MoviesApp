@@ -1,6 +1,8 @@
 // Imports: Dependencies
 import React from "react";
 import { Image, StyleSheet } from "react-native";
+import ViewMoreText from "react-native-view-more-text";
+
 import {
   Header,
   Content,
@@ -25,69 +27,94 @@ import {
  * @param  {number} votes Number of Votes for the Movie
  * @param  {string} language Movie title
  */
-
-const MovieCard = ({
-  title,
-  image_uri,
-  image_uri_thumb,
-  date,
-  overview,
-  votes,
-  language,
-}) => (
-  <>
-    <Header />
-    <Content>
-      <Card style={{ flex: 0 }}>
-        <CardItem>
-          <Left>
-            {/* Thumbnail Image */}
-            <Thumbnail
-              source={{
-                uri: image_uri_thumb,
-              }}
-            />
-            <Body>
-              {/* Movie Title */}
-              <Text>{title}</Text>
-              {/* Movie Release Date */}
-              <Text note>{date}</Text>
-            </Body>
-          </Left>
-        </CardItem>
-        <CardItem>
-          <Body>
+const bgColor = "#111111";
+const textColor = "#f1f1f1";
+const textColor2 = "#787878";
+const MovieCard = ({ title, image_uri, date, overview, votes, language }) => {
+  function renderViewMore(onPress) {
+    return (
+      <Text
+        style={{ color: textColor2, paddingLeft: "5%", top: -5 }}
+        onPress={onPress}
+      >
+        View more
+      </Text>
+    );
+  }
+  function renderViewLess(onPress) {
+    return (
+      <Text
+        style={{ color: textColor2, paddingLeft: "5%", top: -5 }}
+        onPress={onPress}
+      >
+        View less
+      </Text>
+    );
+  }
+  return (
+    <>
+      {/* <Header /> */}
+      <Content
+        style={{
+          borderWidth: 0,
+          borderColor: bgColor,
+          backgroundColor: bgColor,
+        }}
+      >
+        <Card style={{ flex: 0, borderColor: bgColor, borderWidth: 0 }}>
+          <CardItem style={{ backgroundColor: bgColor, borderRadius: 0 }}>
             {/* Movie Image */}
-            <Image
-              source={{
-                uri: image_uri,
-              }}
-              style={styles.image}
-            />
-            {/* Movie Brief Overview */}
-            <Text>{overview}</Text>
-          </Body>
-        </CardItem>
-        <CardItem>
-          {/* Number of Votes */}
-          <Left>
-            <Button transparent textStyle={{ color: "#87838B" }}>
-              <Icon name="star" />
-              <Text>{votes} stars</Text>
-            </Button>
-          </Left>
-          {/* Movie Original Language */}
-          <Right>
-            <Button transparent textStyle={{ color: "#87838B" }}>
-              <Icon name="language" />
-              <Text>{language}</Text>
-            </Button>
-          </Right>
-        </CardItem>
-      </Card>
-    </Content>
-  </>
-);
+            <Left>
+              <Image
+                source={{
+                  uri: image_uri,
+                }}
+                style={styles.image}
+              />
+            </Left>
+            <Right>
+              {/* Movie Brief Overview */}
+              <Text style={styles.title}>{title}</Text>
+              <Text style={styles.date}>{date}</Text>
+              <ViewMoreText
+                numberOfLines={4}
+                renderViewMore={renderViewMore}
+                renderViewLess={renderViewLess}
+                textStyle={{ padding: "5%" }}
+              >
+                <Text style={styles.overview}>{overview}</Text>
+              </ViewMoreText>
+            </Right>
+          </CardItem>
+
+          <CardItem
+            style={{
+              backgroundColor: bgColor,
+              borderRadius: 0,
+              borderColor: bgColor,
+              borderWidth: 0,
+            }}
+          >
+            {/* Number of Votes */}
+            <Left>
+              <Button transparent>
+                <Icon style={{ color: textColor }} name="star" />
+                <Text style={{ color: textColor2 }}>{votes} stars</Text>
+              </Button>
+            </Left>
+            {/* Movie Original Language */}
+            <Right>
+              <Button transparent>
+                <Icon style={{ color: textColor }} name="language" />
+                <Text style={{ color: textColor2 }}>{language}</Text>
+              </Button>
+            </Right>
+          </CardItem>
+        </Card>
+      </Content>
+    </>
+  );
+};
 
 export default MovieCard;
 
@@ -97,7 +124,20 @@ const styles = StyleSheet.create({
     height: 200,
     width: 200,
     flex: 1,
-    alignSelf: "center",
     marginBottom: "10%",
+  },
+  overview: {
+    color: textColor2,
+  },
+  date: {
+    alignSelf: "flex-start",
+    paddingLeft: "5%",
+    color: textColor2,
+  },
+  title: {
+    alignSelf: "flex-start",
+    fontSize: 20,
+    paddingLeft: "5%",
+    color: textColor,
   },
 });
