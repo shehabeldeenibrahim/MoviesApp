@@ -4,16 +4,13 @@ import { Image, StyleSheet } from "react-native";
 import ViewMoreText from "react-native-view-more-text";
 
 import {
-  Header,
   Content,
   Card,
   CardItem,
-  Thumbnail,
   Text,
   Button,
   Icon,
   Left,
-  Body,
   Right,
 } from "native-base";
 
@@ -27,61 +24,57 @@ import {
  * @param  {number} votes Number of Votes for the Movie
  * @param  {string} language Movie title
  */
+
+// Colors Used
 const bgColor = "#111111";
-const textColor = "#f1f1f1";
-const textColor2 = "#787878";
+const white = "#f1f1f1";
+const grey = "#787878";
+
 const MovieCard = ({ title, image_uri, date, overview, votes, language }) => {
   function renderViewMore(onPress) {
     return (
-      <Text
-        style={{ color: textColor2, paddingLeft: "5%", top: -5 }}
-        onPress={onPress}
-      >
+      <Text style={styles.expand} onPress={onPress}>
         View more
       </Text>
     );
   }
   function renderViewLess(onPress) {
     return (
-      <Text
-        style={{ color: textColor2, paddingLeft: "5%", top: -5 }}
-        onPress={onPress}
-      >
+      <Text style={styles.expand} onPress={onPress}>
         View less
       </Text>
     );
   }
+
+  /* View */
   return (
     <>
       {/* <Header /> */}
-      <Content
-        style={{
-          borderWidth: 0,
-          borderColor: bgColor,
-          backgroundColor: bgColor,
-        }}
-      >
+      <Content>
         <Card style={{ flex: 0, borderColor: bgColor, borderWidth: 0 }}>
-          <CardItem
-            style={{
-              backgroundColor: bgColor,
-              borderRadius: 0,
-            }}
-          >
-            {/* Movie Image */}
+          {/* First Card Item */}
+          <CardItem style={styles.cardItem}>
+            {/* Left Col */}
             <Left>
+              {/* Movie Image */}
               <Image
                 source={{
                   uri: image_uri,
                 }}
                 resizeMode={"cover"}
-                style={{ width: "100%", height: 300 }}
+                style={styles.image}
               />
             </Left>
-            <Right style={{ width: "100%", minHeight: 300 }}>
-              {/* Movie Brief Overview */}
+
+            {/* Right Col */}
+            <Right style={styles.right}>
+              {/* Movie Title */}
               <Text style={styles.title}>{title}</Text>
+
+              {/* Movie ReleaseDate */}
               <Text style={styles.date}>{date}</Text>
+
+              {/* Movie Brief Overview Expandable*/}
               <ViewMoreText
                 numberOfLines={6}
                 renderViewMore={renderViewMore}
@@ -93,26 +86,22 @@ const MovieCard = ({ title, image_uri, date, overview, votes, language }) => {
             </Right>
           </CardItem>
 
-          <CardItem
-            style={{
-              backgroundColor: bgColor,
-              borderRadius: 0,
-              borderColor: bgColor,
-              borderWidth: 0,
-            }}
-          >
-            {/* Number of Votes */}
+          {/* Second Card Item */}
+          <CardItem style={styles.cardItem}>
+            {/* Left Col */}
             <Left>
+              {/* Number of Votes */}
               <Button transparent>
-                <Icon style={{ color: textColor }} name="star" />
-                <Text style={{ color: textColor2 }}>{votes} stars</Text>
+                <Icon style={styles.icon} name="star" />
+                <Text style={{ color: grey }}>{votes} Votes</Text>
               </Button>
             </Left>
-            {/* Movie Original Language */}
+            {/* Right Col */}
             <Right>
+              {/* Movie Original Language */}
               <Button transparent>
-                <Icon style={{ color: textColor }} name="language" />
-                <Text style={{ color: textColor2 }}>{language}</Text>
+                <Icon style={styles.icon} name="language" />
+                <Text style={{ color: grey }}>{language}</Text>
               </Button>
             </Right>
           </CardItem>
@@ -126,26 +115,28 @@ export default MovieCard;
 
 // Styles
 const styles = StyleSheet.create({
-  image: {
-    height: "100%",
-    width: "100%",
-    marginBottom: "10%",
-  },
+  image: { width: "100%", height: 300 },
+  right: { width: "100%", minHeight: 300 },
   overview: {
-    color: textColor2,
+    color: grey,
     alignSelf: "flex-start",
     textAlignVertical: "center",
   },
   date: {
     alignSelf: "flex-start",
     paddingLeft: "5%",
-    color: textColor2,
-    // flex: 1,
+    color: grey,
   },
   title: {
     alignSelf: "flex-start",
     fontSize: 20,
     paddingLeft: "5%",
-    color: textColor,
+    color: white,
   },
+  expand: { color: grey, paddingLeft: "5%", top: -5 },
+  cardItem: {
+    backgroundColor: bgColor,
+    borderRadius: 0,
+  },
+  icon: { color: white },
 });

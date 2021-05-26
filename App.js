@@ -21,8 +21,15 @@ export default function App() {
   if (loading) {
     return (
       <Root>
-        <View style={{ justifyContent: "center", flex: 1 }}>
-          <ActivityIndicator size="large" />
+        <View
+          style={{
+            justifyContent: "center",
+            flex: 1,
+            alignItems: "center",
+            backgroundColor: "#111111",
+          }}
+        >
+          <ActivityIndicator size="large" color="#f1f1f1" />
         </View>
       </Root>
     );
@@ -30,7 +37,6 @@ export default function App() {
   return (
     <Root>
       <StatusBar hidden />
-
       <Home />
     </Root>
   );

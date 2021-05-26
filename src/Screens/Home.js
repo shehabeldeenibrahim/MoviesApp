@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import MovieCard from "../Components/MovieCard";
 
+// Background Color
 const bgColor = "#111111";
 
 // Base URI for images fetched
@@ -131,36 +132,26 @@ export default function Home() {
     }
   };
 
+  /* View */
   return (
+    // Safe Area for status bar
     <SafeAreaView style={styles.container}>
-      <Header
-        span
-        style={{
-          backgroundColor: bgColor,
-          borderColor: bgColor,
-        }}
-      >
+      {/* Header */}
+      <Header span style={styles.header}>
         <Body>
-          <Title
-            style={{
-              fontSize: 40,
-              paddingLeft: "2%",
-              color: "#dfdfdf",
-              fontFamily: "Roboto",
-              fontWeight: "600",
-            }}
-          >
-            My Movies
-          </Title>
+          <Title style={styles.headerText}>My Movies</Title>
         </Body>
       </Header>
+      {/* Our Movie Flatlist */}
       <FlatList
         // Data fetched
         data={data}
         // Render Items
         renderItem={({ item }) => (
           <View>
+            {/* Card Component */}
             <MovieCard
+              // Props passed
               title={item.title}
               image_uri_thumb={img_base_uri + item.backdrop_path}
               image_uri={img_base_uri + item.poster_path}
@@ -205,12 +196,11 @@ const styles = StyleSheet.create({
     backgroundColor: bgColor,
   },
   headerText: {
-    fontFamily: "System",
-    fontSize: 36,
+    fontSize: 40,
+    paddingLeft: "2%",
+    color: "#dfdfdf",
+    fontFamily: "Roboto",
     fontWeight: "600",
-    color: "#000",
-    marginLeft: 12,
-    marginBottom: 12,
   },
   itemContainer: {
     height: 80,
@@ -234,5 +224,9 @@ const styles = StyleSheet.create({
     bottom: "5%",
     alignItems: "center",
     justifyContent: "center",
+  },
+  header: {
+    backgroundColor: bgColor,
+    borderBottomWidth: 0,
   },
 });
