@@ -57,7 +57,7 @@ _My built version_ (Android only):
 
 Scan the following QR code:
 
-![QR Code](https://raw.githubusercontent.com/shehabeldeenibrahim/MoviesApp/master/QR.png?token=AOLURWN6ROTT7YQM72FFVCTAVWGN6)
+![QR Code](https://raw.githubusercontent.com/shehabeldeenibrahim/MoviesApp/master/QR.png?token=AOLURWLMC24E2NKJSE6OHSDAVXDRW)
 
 # Requirements
 
@@ -69,4 +69,4 @@ Scan the following QR code:
 
 ## Android
 
-![Android ScreenShot](https://raw.githubusercontent.com/shehabeldeenibrahim/MoviesApp/master/AndroidSS.jpeg?token=AOLURWIXVFO6M2YMSR232CTAVWGHK)
+<img src="https://raw.githubusercontent.com/shehabeldeenibrahim/MoviesApp/master/AndroidSS.jpeg?token=AOLURWIGWDNLVQTP4BHFZVTAVXDGK" alt="drawing" style="width:200px;"/>
