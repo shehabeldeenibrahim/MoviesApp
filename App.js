@@ -1,24 +1,32 @@
+// Imports: Dependencies
 import React, { useEffect, useState } from "react";
 import Home from "./src/Screens/Home";
 import { Root, View } from "native-base";
 import * as Font from "expo-font";
 import { ActivityIndicator } from "react-native-paper";
-import { SafeAreaView, StatusBar } from "react-native";
+import { StatusBar } from "react-native";
 
 export default function App() {
+  // States Declarations
   const [loading, setLoading] = useState(true);
+  // Load Fonts
   const LoadFonts = async () => {
     const fontLoaded = await Font.loadAsync({
       Roboto: require("native-base/Fonts/Roboto.ttf"),
       Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
     });
+
+    // After Fonts are Loaded Remove the Loader
     setLoading(false);
   };
   useEffect(() => {
+    // Load fonts on Load
     LoadFonts();
   }, []);
 
+  // View
   if (loading) {
+    // If still loading fonts show loader
     return (
       <Root>
         <View
@@ -34,10 +42,12 @@ export default function App() {
       </Root>
     );
   }
-  return (
-    <Root>
-      <StatusBar hidden />
-      <Home />
-    </Root>
-  );
+  // When Loading fonts is done
+  else
+    return (
+      <Root>
+        <StatusBar hidden />
+        <Home />
+      </Root>
+    );
 }
