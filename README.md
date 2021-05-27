@@ -1,6 +1,6 @@
 # Movies Mobile Application React-Native
 
-A cross-platform mobile app build using React-Native (Expo) that displays a list of movies fetched through [TheMovieDB]('https://developers.themoviedb.org/') API
+A cross-platform mobile app build using React-Native (Expo) that displays a list of movies fetched through  [TheMovieDB](https://developers.themoviedb.org/) API
 
 <img align="center" src="./gif.gif?raw=true" width="200px" />
 
@@ -59,7 +59,7 @@ npm install
 To preview the app there are 3 options: local build, [Snack](https://snack.expo.io/@shehabtarek1/55ba44) (\_\_), run my build on Expo
 
 1. Dowload Expo app on device:
-   [Google Play]('https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en&gl=US'), [Apple Store]('https://apps.apple.com/us/app/expo-go/id982107779')
+   [Google Play](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en&gl=US'), [Apple Store](https://apps.apple.com/us/app/expo-go/id982107779)
 
 2. Run the following snippet
 
@@ -72,9 +72,9 @@ expo start
 
 # Requirements
 
-- [Expo]('https://expo.io/')
-- [npm]('https://www.npmjs.com/')
-- [native-base]('https://nativebase.io/')
+- [Expo](https://expo.io/)
+- [npm](https://www.npmjs.com/)
+- [native-base](https://nativebase.io/)
 
 # Screenshots
 
