@@ -2,7 +2,7 @@
 
 A cross-platform mobile app build using React-Native (Expo) that displays a list of movies fetched through [TheMovieDB]('https://developers.themoviedb.org/') API
 
-<img src="./gif.gif?raw=true" width="200px" />
+<img align="center" src="./gif.gif?raw=true" width="200px" />
 
 # Features
 
@@ -78,14 +78,21 @@ expo start
 
 # Screenshots
 
-<div class="row">
-    <div style="float: left; width: 50%; border-bottom-width: 0;">
-        <h1 style="border-bottom-width: 0;">Android</h1> 
-        <img src="https://firebasestorage.googleapis.com/v0/b/myfirstproject-5a8f5.appspot.com/o/AndroidSS.jpeg?alt=media&token=c37a2ef4-110c-47e6-8c53-1a56cbd6722a"  style="width:200px;"/>
-    </div>
-    </div>
-    <div style="float: left; width: 50%;">
-        <h1 style="border-bottom-width: 0;">Apple</h1> 
-        <img src="https://firebasestorage.googleapis.com/v0/b/myfirstproject-5a8f5.appspot.com/o/AppleSS.png?alt=media&token=32238bf6-55da-4055-b4e7-0f76e956d7e8" style="width:200px;"/>
-    </div>
-</div>
+<table align="center">
+	<thead>
+		<td>
+			<h1 style="border-bottom-width: 0;">Android</h1> 
+		</td>
+		<td>
+			<h1 style="border-bottom-width: 0;">Apple</h1> 
+		</td>
+	</thead>
+	<tr>
+		<td>
+			<img src="https://firebasestorage.googleapis.com/v0/b/myfirstproject-5a8f5.appspot.com/o/AndroidSS.jpeg?alt=media&token=c37a2ef4-110c-47e6-8c53-1a56cbd6722a"  width="200px"/>
+		</td>
+		<td>
+			 <img width=200 src="https://firebasestorage.googleapis.com/v0/b/myfirstproject-5a8f5.appspot.com/o/AppleSS.png?alt=media&token=32238bf6-55da-4055-b4e7-0f76e956d7e8" width="200px"/>
+	</tr>
+	
+</table>
