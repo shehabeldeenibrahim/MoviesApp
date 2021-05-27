@@ -58,7 +58,7 @@ npm install
 
 ### 2. Run App
 
-To preview the app there are 3 options: local build, [Snack](https://snack.expo.io/@shehabtarek1/55ba44) (\_\_), run my build on Expo
+To preview the app there are 3 options: local build, [Snack](https://snack.expo.io/@shehabtarek1/55ba44), run my build on Expo
 
 1. Dowload Expo app on device:
    [Google Play](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en&gl=US'), [Apple Store](https://apps.apple.com/us/app/expo-go/id982107779)
