@@ -20,7 +20,7 @@ export default MovieList = ({ retrieveMore, data, refreshing, loading }) => {
       <FlatList
         // Data fetched
         data={data}
-        // Render Items
+        // Render each item in data array
         renderItem={({ item }) => (
           <View>
             {/* Card Component */}
@@ -36,15 +36,15 @@ export default MovieList = ({ retrieveMore, data, refreshing, loading }) => {
             />
           </View>
         )}
-        // Item Key
+        // Extract item Key
         keyExtractor={(item, index) => String(index)}
-        // On End Reached retrieves more data
+        // On End Reached retrieves more data (LAZY LOADING)
         onEndReached={() => {
           retrieveMore();
         }}
         // How Close To The End Of List Until Next Data Request Is Made
-        onEndReachedThreshold={0.1}
-        // Refreshing (Set To True When End Reached)
+        onEndReachedThreshold={0.2}
+        // Refreshing State Set To True When End Reached
         refreshing={refreshing}
         // Optimization attributes
         initialNumToRender={20}
@@ -62,12 +62,13 @@ export default MovieList = ({ retrieveMore, data, refreshing, loading }) => {
     </>
   );
 };
+
+// Styles
 const styles = StyleSheet.create({
   loading: {
     position: "absolute",
     left: 0,
     right: 0,
-    // top: 0,
     bottom: "5%",
     alignItems: "center",
     justifyContent: "center",

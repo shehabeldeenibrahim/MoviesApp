@@ -9,7 +9,6 @@ import {
   CardItem,
   Text,
   Button,
-  Icon,
   Left,
   Right,
 } from "native-base";

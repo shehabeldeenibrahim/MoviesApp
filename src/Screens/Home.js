@@ -1,7 +1,12 @@
 // Imports: Dependencies
 import { Body, Header, Title } from "native-base";
 import React, { useEffect, useState } from "react";
-import { Dimensions, SafeAreaView, StyleSheet } from "react-native";
+import {
+  Dimensions,
+  SafeAreaView,
+  StyleSheet,
+  ToastAndroid,
+} from "react-native";
 import getMovies from "../Api/api";
 import MoviesList from "../Components/MoviesList";
 import NoData from "../Components/NoData";
@@ -43,6 +48,18 @@ export default function Home() {
   }, []);
 
   /**
+   * Shows error toast message when error occurs
+   * @param  none
+   * @return none
+   */
+  function showToast() {
+    ToastAndroid.show(
+      "Please check your internet connection!",
+      ToastAndroid.LONG
+    );
+  }
+
+  /**
    * Retrieve first page on page load
    * @param  none
    * @return none
@@ -54,10 +71,16 @@ export default function Home() {
 
       // Fetch first page from api
       // Call back
-      getMovies(1).then((data) => {
-        // Set data array to be listed
-        setData(data.results);
-      });
+      getMovies(1)
+        .then((data) => {
+          // Set data array to be listed
+          setData(data.results);
+        })
+        .catch((e) => {
+          /* Error Handling */
+          showToast();
+          console.log(e);
+        });
 
       // Increment page number to fetch next page
       setPage(page + 1);
@@ -67,6 +90,9 @@ export default function Home() {
       // Stop loading after fetching
       setLoading(false);
     } catch (error) {
+      /* Error Handling */
+
+      showToast();
       console.log(error);
     }
   };
@@ -85,21 +111,29 @@ export default function Home() {
       setRefreshing(true);
       setLoading(true);
 
-      getMovies(page).then((moreData) => {
-        // Append new data to data state to be listed
-        setData([...data, ...moreData.results]);
+      getMovies(page)
+        .then((moreData) => {
+          // Append new data to data state to be listed
+          setData([...data, ...moreData.results]);
 
-        // Increment page number to fetch next page
-        setPage(page + 1);
+          // Increment page number to fetch next page
+          setPage(page + 1);
 
-        // Set loading after fetching
-        setLoading(false);
-      });
+          // Set loading after fetching
+          setLoading(false);
+        })
+        .catch((e) => {
+          /* Error Handling */
+          showToast();
+          console.log(e);
+        });
 
       // Set refreshing to false
       setRefreshing(false);
     } catch (error) {
+      /* Error Handling */
       console.log(error);
+      showToast();
     }
   };
 

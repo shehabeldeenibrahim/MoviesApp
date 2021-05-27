@@ -1,12 +1,39 @@
-export default async function getMovies(page) {
-  const response = await fetch(
-    // Movies URL
-    `http://api.themoviedb.org/3/discover/movie?api_key=28ae3e833077363150b565b2ab3160a7&page=${page}`,
-    {}
-  ).catch((e) => {
-    console.log(e);
-  });
+import { ToastAndroid } from "react-native";
 
-  const json = await response.json();
-  return json;
+/**
+ * Shows error toast message when error occurs
+ * @param  none
+ * @return none
+ */
+function showToast() {
+  ToastAndroid.show(
+    "Please check your internet connection!",
+    ToastAndroid.LONG
+  );
+}
+
+/**
+ * Shows error toast message when error occurs
+ * @param  none
+ * @return Json containing data retrieved from API
+ */
+export default async function getMovies(page) {
+  try {
+    const response = await fetch(
+      // Movies URL
+      `http://api.themoviedb.org/3/discover/movie?api_key=28ae3e833077363150b565b2ab3160a7&page=${page}`,
+      {}
+    ).catch((e) => {
+      /* Error Handling */
+      showToast();
+      console.log(e);
+    });
+
+    const json = await response.json();
+    return json;
+  } catch (error) {
+    /* Error Handling */
+    showToast();
+    console.log(error);
+  }
 }
