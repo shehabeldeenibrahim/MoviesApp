@@ -13,12 +13,10 @@ import {
 } from "react-native";
 import getMovies from "../Api/api";
 import MovieCard from "../Components/MovieCard";
+import MoviesList from "../Components/MoviesList";
 
 // Background Color
 const bgColor = "#111111";
-
-// Base URI for images fetched
-const img_base_uri = "https://image.tmdb.org/t/p/w500/";
 
 // Screen Dimensions
 const { height, width } = Dimensions.get("window");
@@ -117,7 +115,7 @@ export default function Home() {
     /* View */
     return (
       // Safe Area for status bar
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView testID="dataArrived" style={styles.container}>
         {/* Header */}
         <Header span style={styles.header}>
           <Body>
@@ -125,39 +123,10 @@ export default function Home() {
           </Body>
         </Header>
         {/* Our Movie Flatlist */}
-        <FlatList
-          // Data fetched
+        <MoviesList
+          retrieveMore={retrieveMore}
           data={data}
-          // Render Items
-          renderItem={({ item }) => (
-            <View>
-              {/* Card Component */}
-              <MovieCard
-                // Props passed
-                title={item.title}
-                image_uri_thumb={img_base_uri + item.backdrop_path}
-                image_uri={img_base_uri + item.poster_path}
-                date={item.release_date}
-                overview={item.overview}
-                votes={item.vote_count}
-                language={item.original_language}
-              />
-            </View>
-          )}
-          // Item Key
-          keyExtractor={(item, index) => String(index)}
-          // On End Reached retrieves more data
-          onEndReached={() => {
-            retrieveMore();
-          }}
-          // How Close To The End Of List Until Next Data Request Is Made
-          onEndReachedThreshold={0.1}
-          // Refreshing (Set To True When End Reached)
           refreshing={refreshing}
-          // Optimization attributes
-          initialNumToRender={5}
-          maxToRenderPerBatch={10}
-          windowSize={10}
         />
         {/* Show loading indicator if loading set to true */}
         {loading ? (
@@ -173,7 +142,7 @@ export default function Home() {
   else
     return (
       <>
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView testID="noData" style={styles.container}>
           {/* Header */}
           <Header span style={styles.header}>
             <Body>
