@@ -11,7 +11,7 @@ import {
   View,
   Image,
 } from "react-native";
-import api_content from "../Api/api";
+import getMovies from "../Api/api";
 import MovieCard from "../Components/MovieCard";
 
 // Background Color
@@ -65,7 +65,7 @@ export default function Home() {
 
       // Fetch first page from api
       // Call back
-      api_content(1).then((data) => {
+      getMovies(1).then((data) => {
         // Set data array to be listed
         setData(data.results);
       });
@@ -96,7 +96,7 @@ export default function Home() {
       setRefreshing(true);
       setLoading(true);
 
-      api_content(page).then((moreData) => {
+      getMovies(page).then((moreData) => {
         // Append new data to data state to be listed
         setData([...data, ...moreData.results]);
 
