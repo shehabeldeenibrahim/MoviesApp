@@ -1,12 +1,7 @@
 // Imports: Dependencies
 import { Body, Header, Title } from "native-base";
 import React, { useEffect, useState } from "react";
-import {
-  ActivityIndicator,
-  Dimensions,
-  SafeAreaView,
-  StyleSheet,
-} from "react-native";
+import { Dimensions, SafeAreaView, StyleSheet } from "react-native";
 import getMovies from "../Api/api";
 import MoviesList from "../Components/MoviesList";
 import NoData from "../Components/NoData";
@@ -165,15 +160,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "400",
     color: "#000",
-  },
-  loading: {
-    position: "absolute",
-    left: 0,
-    right: 0,
-    // top: 0,
-    bottom: "5%",
-    alignItems: "center",
-    justifyContent: "center",
   },
   header: {
     backgroundColor: bgColor,

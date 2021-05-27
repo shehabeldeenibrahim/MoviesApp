@@ -1,6 +1,6 @@
 // Imports: Dependencies
 import React from "react";
-import { FlatList, View } from "react-native";
+import { FlatList, View, StyleSheet, ActivityIndicator } from "react-native";
 import MovieCard from "./MovieCard";
 
 // Base URI for images fetched
@@ -62,3 +62,14 @@ export default MovieList = ({ retrieveMore, data, refreshing, loading }) => {
     </>
   );
 };
+const styles = StyleSheet.create({
+  loading: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    // top: 0,
+    bottom: "5%",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});
