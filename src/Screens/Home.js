@@ -4,16 +4,12 @@ import React, { useEffect, useState } from "react";
 import {
   ActivityIndicator,
   Dimensions,
-  FlatList,
   SafeAreaView,
   StyleSheet,
-  Text,
-  View,
-  Image,
 } from "react-native";
 import getMovies from "../Api/api";
-import MovieCard from "../Components/MovieCard";
 import MoviesList from "../Components/MoviesList";
+import NoData from "../Components/NoData";
 
 // Background Color
 const bgColor = "#111111";
@@ -111,62 +107,37 @@ export default function Home() {
       console.log(error);
     }
   };
-  if (data && data.length)
-    /* View */
-    return (
-      // Safe Area for status bar
-      <SafeAreaView testID="dataArrived" style={styles.container}>
-        {/* Header */}
-        <Header span style={styles.header}>
-          <Body>
-            <Title style={styles.headerText}>My Movies</Title>
-          </Body>
-        </Header>
-        {/* Our Movie Flatlist */}
+
+  /* View */
+  return (
+    // Safe Area for status bar
+    <SafeAreaView testID="dataArrived" style={styles.container}>
+      {/* Header */}
+      <Header span style={styles.header}>
+        <Body>
+          <Title style={styles.headerText}>My Movies</Title>
+        </Body>
+      </Header>
+
+      {/* If Data is available show flat list */}
+      {data && data.length ? (
+        /* Render Our Movie Flatlist Component */
         <MoviesList
           retrieveMore={retrieveMore}
           data={data}
           refreshing={refreshing}
+          loading={loading}
         />
-        {/* Show loading indicator if loading set to true */}
-        {loading ? (
-          <ActivityIndicator
-            size="large"
-            color="#87838B"
-            style={styles.loading}
-          />
-        ) : null}
-      </SafeAreaView>
-    );
-  // If no data available
-  else
-    return (
-      <>
-        <SafeAreaView testID="noData" style={styles.container}>
-          {/* Header */}
-          <Header span style={styles.header}>
-            <Body>
-              <Title style={styles.headerText}>My Movies</Title>
-            </Body>
-          </Header>
-          {/* Place Holder Image and text, indicating no data */}
-          <View style={styles.noData}>
-            <Image
-              source={{
-                uri: "https://img-premium.flaticon.com/png/512/3672/3672380.png?token=exp=1622109454~hmac=98794227f3d0fb29eb203f475391109d",
-              }}
-              style={styles.noDataImage}
-              resizeMode={"cover"}
-            />
-            <Text style={styles.noDataText}>No data available</Text>
-            <Text style={styles.noDataText}>
-              check your internet connectin and try again
-            </Text>
-          </View>
-        </SafeAreaView>
-      </>
-    );
+      ) : (
+        /* If data not available */
+
+        /* Place Holder Image and text, indicating no data */
+        <NoData />
+      )}
+    </SafeAreaView>
+  );
 }
+
 // Styles
 const styles = StyleSheet.create({
   container: {
@@ -208,11 +179,4 @@ const styles = StyleSheet.create({
     backgroundColor: bgColor,
     borderBottomWidth: 0,
   },
-  noData: {
-    color: "white",
-    alignSelf: "center",
-    top: width / 2,
-  },
-  noDataText: { color: "white", alignSelf: "center" },
-  noDataImage: { width: 100, height: 100, alignSelf: "center" },
 });

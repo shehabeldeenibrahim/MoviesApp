@@ -1,3 +1,4 @@
+// Imports: Dependencies
 import React from "react";
 import { FlatList, View } from "react-native";
 import MovieCard from "./MovieCard";
@@ -5,7 +6,14 @@ import MovieCard from "./MovieCard";
 // Base URI for images fetched
 const img_base_uri = "https://image.tmdb.org/t/p/w500/";
 
-export default MovieList = ({ retrieveMore, data, refreshing }) => {
+/**
+ * List Component to list all movie cards
+ * @param  {function} retrieveMore  Function gets next page of movies
+ * @param  {Array} data             Data to be displayed
+ * @param  {state} refreshing       State for refreshing attribute in Flatlist
+ * @param  {state} loading          State for showing loader while retrieving more data
+ */
+export default MovieList = ({ retrieveMore, data, refreshing, loading }) => {
   return (
     <>
       {/* Our Movie Flatlist */}
@@ -43,6 +51,14 @@ export default MovieList = ({ retrieveMore, data, refreshing }) => {
         maxToRenderPerBatch={20}
         windowSize={20}
       />
+      {/* Show loading indicator if loading set to true */}
+      {loading ? (
+        <ActivityIndicator
+          size="large"
+          color="#87838B"
+          style={styles.loading}
+        />
+      ) : null}
     </>
   );
 };
