@@ -36,8 +36,9 @@ _Snack_:
 2. Choose a Android/IOS tab to preview the app on a simulator
 
 _My built version_ (Android only):
-
-Scan the following QR code:
+1. Dowload Expo app on device:
+   [Google Play](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en&gl=US')
+2. Scan the following QR code:
 
 ![QR Code](https://firebasestorage.googleapis.com/v0/b/myfirstproject-5a8f5.appspot.com/o/QR.png?alt=media&token=0e8b498f-c467-407f-bc7a-c58cc18ef4d7)
 
