@@ -2,7 +2,7 @@
 
 A cross-platform mobile app build using React-Native (Expo) that displays a list of movies fetched through [TheMovieDB]('https://developers.themoviedb.org/') API
 
-<img src="https://firebasestorage.googleapis.com/v0/b/myfirstproject-5a8f5.appspot.com/o/gif.gif?alt=media&token=b4722083-aac8-4e1f-9e02-5f35eea5437c" style="width:200px;margin-left:25%;" />
+<img src="./gif.gif?raw=true" width="200px" />
 
 # Features
 
