@@ -28,9 +28,9 @@ A cross-platform mobile app build using React-Native (Expo) that displays a list
 
 # Preview App
 
-To preview the app there are 3 options: local build (_See Setup Instructions_), [Snack](https://snack.expo.io/@shehabtarek1/55ba44) (_Recommended_), run my build on Expo
+To preview the app there are 3 options: local build (_See Setup Instructions_), [Snack](https://snack.expo.io/@shehabtarek1/55ba44) (_Recommended_) on a laptop browser, run my build on Expo on a real device
 
-_Snack_:
+_Snack_  (_Recommended_):
 
 1. Open this link from a browser: https://snack.expo.io/@shehabtarek1/55ba44
 2. Choose a Android/IOS tab to preview the app on a simulator
