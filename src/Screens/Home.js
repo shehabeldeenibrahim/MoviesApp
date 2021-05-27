@@ -7,8 +7,11 @@ import {
   FlatList,
   SafeAreaView,
   StyleSheet,
+  Text,
   View,
+  Image,
 } from "react-native";
+import api_content from "../Api/api";
 import MovieCard from "../Components/MovieCard";
 
 // Background Color
@@ -61,21 +64,8 @@ export default function Home() {
       setLoading(true);
 
       // Fetch first page from api
-      async function api_content() {
-        const response = await fetch(
-          // Movies URL
-          `http://api.themoviedb.org/3/discover/movie?api_key=28ae3e833077363150b565b2ab3160a7&page=${1}`,
-          {}
-        ).catch((e) => {
-          console.log(e);
-        });
-
-        const json = await response.json();
-        return json;
-      }
-
       // Call back
-      api_content().then((data) => {
+      api_content(1).then((data) => {
         // Set data array to be listed
         setData(data.results);
       });
@@ -106,17 +96,7 @@ export default function Home() {
       setRefreshing(true);
       setLoading(true);
 
-      async function api_content() {
-        const response = await fetch(
-          // Movies URL
-          `http://api.themoviedb.org/3/discover/movie?api_key=28ae3e833077363150b565b2ab3160a7&page=${page}`,
-          {}
-        );
-        const json = await response.json();
-        return json;
-      }
-
-      api_content().then((moreData) => {
+      api_content(page).then((moreData) => {
         // Append new data to data state to be listed
         setData([...data, ...moreData.results]);
 
@@ -133,62 +113,90 @@ export default function Home() {
       console.log(error);
     }
   };
-
-  /* View */
-  return (
-    // Safe Area for status bar
-    <SafeAreaView style={styles.container}>
-      {/* Header */}
-      <Header span style={styles.header}>
-        <Body>
-          <Title style={styles.headerText}>My Movies</Title>
-        </Body>
-      </Header>
-      {/* Our Movie Flatlist */}
-      <FlatList
-        // Data fetched
-        data={data}
-        // Render Items
-        renderItem={({ item }) => (
-          <View>
-            {/* Card Component */}
-            <MovieCard
-              // Props passed
-              title={item.title}
-              image_uri_thumb={img_base_uri + item.backdrop_path}
-              image_uri={img_base_uri + item.poster_path}
-              date={item.release_date}
-              overview={item.overview}
-              votes={item.vote_count}
-              language={item.original_language}
-            />
-          </View>
-        )}
-        // Item Key
-        keyExtractor={(item, index) => String(index)}
-        // On End Reached retrieves more data
-        onEndReached={() => {
-          retrieveMore();
-        }}
-        // How Close To The End Of List Until Next Data Request Is Made
-        onEndReachedThreshold={0.1}
-        // Refreshing (Set To True When End Reached)
-        refreshing={refreshing}
-        // Optimization attributes
-        initialNumToRender={5}
-        maxToRenderPerBatch={10}
-        windowSize={10}
-      />
-      {/* Show loading indicator if loading set to true */}
-      {loading ? (
-        <ActivityIndicator
-          size="large"
-          color="#87838B"
-          style={styles.loading}
+  if (data && data.length)
+    /* View */
+    return (
+      // Safe Area for status bar
+      <SafeAreaView style={styles.container}>
+        {/* Header */}
+        <Header span style={styles.header}>
+          <Body>
+            <Title style={styles.headerText}>My Movies</Title>
+          </Body>
+        </Header>
+        {/* Our Movie Flatlist */}
+        <FlatList
+          // Data fetched
+          data={data}
+          // Render Items
+          renderItem={({ item }) => (
+            <View>
+              {/* Card Component */}
+              <MovieCard
+                // Props passed
+                title={item.title}
+                image_uri_thumb={img_base_uri + item.backdrop_path}
+                image_uri={img_base_uri + item.poster_path}
+                date={item.release_date}
+                overview={item.overview}
+                votes={item.vote_count}
+                language={item.original_language}
+              />
+            </View>
+          )}
+          // Item Key
+          keyExtractor={(item, index) => String(index)}
+          // On End Reached retrieves more data
+          onEndReached={() => {
+            retrieveMore();
+          }}
+          // How Close To The End Of List Until Next Data Request Is Made
+          onEndReachedThreshold={0.1}
+          // Refreshing (Set To True When End Reached)
+          refreshing={refreshing}
+          // Optimization attributes
+          initialNumToRender={5}
+          maxToRenderPerBatch={10}
+          windowSize={10}
         />
-      ) : null}
-    </SafeAreaView>
-  );
+        {/* Show loading indicator if loading set to true */}
+        {loading ? (
+          <ActivityIndicator
+            size="large"
+            color="#87838B"
+            style={styles.loading}
+          />
+        ) : null}
+      </SafeAreaView>
+    );
+  // If no data available
+  else
+    return (
+      <>
+        <SafeAreaView style={styles.container}>
+          {/* Header */}
+          <Header span style={styles.header}>
+            <Body>
+              <Title style={styles.headerText}>My Movies</Title>
+            </Body>
+          </Header>
+          {/* Place Holder Image and text, indicating no data */}
+          <View style={styles.noData}>
+            <Image
+              source={{
+                uri: "https://img-premium.flaticon.com/png/512/3672/3672380.png?token=exp=1622109454~hmac=98794227f3d0fb29eb203f475391109d",
+              }}
+              style={styles.noDataImage}
+              resizeMode={"cover"}
+            />
+            <Text style={styles.noDataText}>No data available</Text>
+            <Text style={styles.noDataText}>
+              check your internet connectin and try again
+            </Text>
+          </View>
+        </SafeAreaView>
+      </>
+    );
 }
 // Styles
 const styles = StyleSheet.create({
@@ -231,4 +239,11 @@ const styles = StyleSheet.create({
     backgroundColor: bgColor,
     borderBottomWidth: 0,
   },
+  noData: {
+    color: "white",
+    alignSelf: "center",
+    top: width / 2,
+  },
+  noDataText: { color: "white", alignSelf: "center" },
+  noDataImage: { width: 100, height: 100, alignSelf: "center" },
 });
