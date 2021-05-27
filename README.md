@@ -28,16 +28,17 @@ A cross-platform mobile app build using React-Native (Expo) that displays a list
 
 # Preview App
 
-To preview the app there are 3 options: local build (_See Setup Instructions_), [Snack](https://snack.expo.io/@shehabtarek1/55ba44) (_Recommended_), run my build on Expo
+To preview the app there are 3 options: local build (_See Setup Instructions_), [Snack](https://snack.expo.io/@shehabtarek1/55ba44) (_Recommended_) on a laptop browser, run my build on Expo on a real device
 
-_Snack_:
+_Snack_  (_Recommended_):
 
 1. Open this link from a browser: https://snack.expo.io/@shehabtarek1/55ba44
 2. Choose a Android/IOS tab to preview the app on a simulator
 
 _My built version_ (Android only):
-
-Scan the following QR code:
+1. Dowload Expo app on device:
+   [Google Play](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en&gl=US')
+2. Scan the following QR code:
 
 ![QR Code](https://firebasestorage.googleapis.com/v0/b/myfirstproject-5a8f5.appspot.com/o/QR.png?alt=media&token=0e8b498f-c467-407f-bc7a-c58cc18ef4d7)
 
@@ -57,7 +58,7 @@ npm install
 
 ### 2. Run App
 
-To preview the app there are 3 options: local build, [Snack](https://snack.expo.io/@shehabtarek1/55ba44) (\_\_), run my build on Expo
+To preview the app there are 3 options: local build, [Snack](https://snack.expo.io/@shehabtarek1/55ba44), run my build on Expo
 
 1. Dowload Expo app on device:
    [Google Play](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en&gl=US'), [Apple Store](https://apps.apple.com/us/app/expo-go/id982107779)
