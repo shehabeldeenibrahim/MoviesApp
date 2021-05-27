@@ -13,6 +13,7 @@ import {
   Left,
   Right,
 } from "native-base";
+import { Ionicons } from "@expo/vector-icons";
 
 /**
  * Card Component to Display Movie Details
@@ -92,7 +93,7 @@ const MovieCard = ({ title, image_uri, date, overview, votes, language }) => {
             <Left>
               {/* Number of Votes */}
               <Button transparent>
-                <Icon style={styles.icon} name="star" />
+                <Ionicons style={styles.icon} size={15} name="heart" />
                 <Text style={{ color: grey }}>{votes} Votes</Text>
               </Button>
             </Left>
@@ -100,7 +101,7 @@ const MovieCard = ({ title, image_uri, date, overview, votes, language }) => {
             <Right>
               {/* Movie Original Language */}
               <Button transparent>
-                <Icon style={styles.icon} name="language" />
+                <Ionicons style={styles.icon} size={15} name="language" />
                 <Text style={{ color: grey }}>{language}</Text>
               </Button>
             </Right>

@@ -2,7 +2,9 @@
 
 A cross-platform mobile app build using React-Native (Expo) that displays a list of movies fetched through [TheMovieDB]('https://developers.themoviedb.org/') API
 
-## Features
+<img src="https://firebasestorage.googleapis.com/v0/b/myfirstproject-5a8f5.appspot.com/o/gif.gif?alt=media&token=b4722083-aac8-4e1f-9e02-5f35eea5437c" style="width:200px;margin-left:25%;" />
+
+# Features
 
 - Infinite List of Movies
 - List is Lazy-Loaded
@@ -11,7 +13,7 @@ A cross-platform mobile app build using React-Native (Expo) that displays a list
 - Release Date
 - Number of Stars
 
-## Project Directory
+# Project Directory
 
     .
     ├── assets                    # Static Assets
@@ -23,7 +25,22 @@ A cross-platform mobile app build using React-Native (Expo) that displays a list
     ├── App.js                    # Starting point of the app
     └── README.md                 # Comprehensive desicription
 
-## Setup instructions
+# Preview App
+
+To preview the app there are 3 options: local build (_See Setup Instructions_), [Snack](https://snack.expo.io/@shehabtarek1/55ba44) (_Recommended_), run my build on Expo
+
+_Snack_:
+
+1. Open this link from a browser: https://snack.expo.io/@shehabtarek1/55ba44
+2. Choose a Android/IOS tab to preview the app on a simulator
+
+_My built version_ (Android only):
+
+Scan the following QR code:
+
+![QR Code](https://firebasestorage.googleapis.com/v0/b/myfirstproject-5a8f5.appspot.com/o/QR.png?alt=media&token=0e8b498f-c467-407f-bc7a-c58cc18ef4d7)
+
+# Setup instructions
 
 ### 1. Install dependencies
 
@@ -39,7 +56,7 @@ npm install
 
 ### 2. Run App
 
-_Locally_:
+To preview the app there are 3 options: local build, [Snack](https://snack.expo.io/@shehabtarek1/55ba44) (\_\_), run my build on Expo
 
 1. Dowload Expo app on device:
    [Google Play]('https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en&gl=US'), [Apple Store]('https://apps.apple.com/us/app/expo-go/id982107779')
@@ -53,12 +70,6 @@ expo start
 
 3. Scan QR code from the device camera
 
-_My built version_ (Android only):
-
-Scan the following QR code:
-
-![QR Code](https://raw.githubusercontent.com/shehabeldeenibrahim/MoviesApp/master/QR.png?token=AOLURWLMC24E2NKJSE6OHSDAVXDRW)
-
 # Requirements
 
 - [Expo]('https://expo.io/')
@@ -67,6 +78,14 @@ Scan the following QR code:
 
 # Screenshots
 
-## Android
-
-<img src="https://raw.githubusercontent.com/shehabeldeenibrahim/MoviesApp/master/AndroidSS.jpeg?token=AOLURWIGWDNLVQTP4BHFZVTAVXDGK" alt="drawing" style="width:200px;"/>
+<div class="row">
+    <div style="float: left; width: 50%; border-bottom-width: 0;">
+        <h1 style="border-bottom-width: 0;">Android</h1> 
+        <img src="https://firebasestorage.googleapis.com/v0/b/myfirstproject-5a8f5.appspot.com/o/AndroidSS.jpeg?alt=media&token=c37a2ef4-110c-47e6-8c53-1a56cbd6722a"  style="width:200px;"/>
+    </div>
+    </div>
+    <div style="float: left; width: 50%;">
+        <h1 style="border-bottom-width: 0;">Apple</h1> 
+        <img src="https://firebasestorage.googleapis.com/v0/b/myfirstproject-5a8f5.appspot.com/o/AppleSS.png?alt=media&token=32238bf6-55da-4055-b4e7-0f76e956d7e8" style="width:200px;"/>
+    </div>
+</div>
