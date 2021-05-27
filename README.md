@@ -19,6 +19,7 @@ A cross-platform mobile app build using React-Native (Expo) that displays a list
     ├── assets                    # Static Assets
     ├── src                       # Source Code
     │   ├── Components            # Directory of Components used
+        ├── Api            	  # Directory contains Api functions
     │   └── Screens               # Directory of Screens used
     ├── package.json              # List of Packages used in the project
     ├── app.json                  # Configuring parts of your app
