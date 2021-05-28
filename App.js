@@ -37,7 +37,7 @@ export default function App() {
             backgroundColor: "#111111",
           }}
         >
-          <ActivityIndicator size="large" color="#f1f1f1" />
+          <ActivityIndicator testID="app-loader" size="large" color="#f1f1f1" />
         </View>
       </Root>
     );

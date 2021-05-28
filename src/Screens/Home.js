@@ -140,7 +140,7 @@ export default function Home() {
   /* View */
   return (
     // Safe Area for status bar
-    <SafeAreaView testID="dataArrived" style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {/* Header */}
       <Header span style={styles.header}>
         <Body>
