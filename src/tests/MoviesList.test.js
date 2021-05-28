@@ -52,6 +52,7 @@ describe("Movies List", () => {
     const eventData = {
       nativeEvent: {
         contentOffset: {
+          /* Change this to test */
           y: 500,
         },
         contentSize: {

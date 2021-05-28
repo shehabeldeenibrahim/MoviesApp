@@ -30,6 +30,7 @@ describe("API Test", () => {
     /* Test API Should return error if number of pages > 500 */
     moviesData = await getMovies(555555);
     await flushPromises();
+    /* Error expected from API */
     expect(moviesData).toEqual({
       errors: ["page must be less than or equal to 500"],
     });

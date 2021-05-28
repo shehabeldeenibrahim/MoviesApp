@@ -10,7 +10,6 @@ configure({ adapter: new Adapter() });
 describe("Home Screen", () => {
   /* Test Rendering of props in DOM */
   it("Home Screen Rendered Correctly", async () => {
-    const retrieveMore = jest.fn();
     const { getByTestId, getByText, UNSAFE_getByType, debug } = render(
       <Home />
     );
