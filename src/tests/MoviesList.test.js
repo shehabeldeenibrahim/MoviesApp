@@ -1,6 +1,6 @@
 import React from "react";
 import Adapter from "enzyme-adapter-react-16";
-import { shallow, configure } from "enzyme";
+import { configure } from "enzyme";
 import MoviesList from "../Components/MoviesList";
 import { fireEvent, render } from "@testing-library/react-native";
 import { data } from "./MoviesDataMock";
