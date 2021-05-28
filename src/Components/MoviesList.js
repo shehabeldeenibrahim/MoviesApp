@@ -18,13 +18,15 @@ export default MovieList = ({ retrieveMore, data, refreshing, loading }) => {
     <>
       {/* Our Movie Flatlist */}
       <FlatList
+        testID="list"
         // Data fetched
         data={data}
         // Render each item in data array
-        renderItem={({ item }) => (
+        renderItem={({ item, index }) => (
           <View>
             {/* Card Component */}
             <MovieCard
+              testID={`movie-card-${index}`}
               // Props passed
               title={item.title}
               image_uri_thumb={img_base_uri + item.backdrop_path}
