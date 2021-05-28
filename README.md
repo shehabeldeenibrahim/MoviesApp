@@ -27,6 +27,10 @@ A cross-platform mobile app build using React-Native (Expo) that displays a list
     ├── App.js                    # Starting point of the app
     └── README.md                 # Comprehensive desicription
 
+Components parent-child:
+    
+App ------> Home ------> MoviesList ------> MovieCard
+
 # Preview App
 
 To preview the app there are 3 options: local build (_See Setup Instructions_), [Snack](https://snack.expo.io/@shehabtarek1/55ba44) (_Recommended_) on a laptop browser, run my build on Expo on a real device
@@ -73,11 +77,14 @@ expo start
 
 3. Scan QR code from the device camera
 
-# Requirements
+# Testing
+For each component in the project, there is a test file developed to unit test the functionality. (_All the tests are done using Jest and react-native_testing-library_)
 
-- [Expo](https://expo.io/)
-- [npm](https://www.npmjs.com/)
-- [native-base](https://nativebase.io/)
+The following describes the most important tests that have been made:
+
+- API Tests to verify functionality and error handling
+- Unit test for _MoviesList_ to check that lazy loading is done correctly
+- Unit tests for the rest of the components to ensure everything is rendered correctly
 
 # Screenshots
 
@@ -99,3 +106,11 @@ expo start
 	</tr>
 	
 </table>
+
+# Requirements
+
+- [Expo](https://expo.io/)
+- [npm](https://www.npmjs.com/)
+- [native-base](https://nativebase.io/)
+- [Jest](https://jestjs.io)
+
