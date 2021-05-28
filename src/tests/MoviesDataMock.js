@@ -1,3 +1,4 @@
+/* Mock data retrieved from the API to be passed to components for testing  */
 export const data = [
   {
     adult: false,

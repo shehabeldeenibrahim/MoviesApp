@@ -69,7 +69,9 @@ const MovieCard = ({ title, image_uri, date, overview, votes, language }) => {
             {/* Right Col */}
             <Right style={styles.right}>
               {/* Movie Title */}
-              <Text style={styles.title}>{title}</Text>
+              <Text testID="title" style={styles.title}>
+                {title}
+              </Text>
 
               {/* Movie ReleaseDate */}
               <Text style={styles.date}>{date}</Text>

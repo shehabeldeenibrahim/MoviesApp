@@ -17,7 +17,9 @@ export default NoData = () => {
         style={styles.noDataImage}
         resizeMode={"cover"}
       />
-      <Text style={styles.noDataText}>No data available</Text>
+      <Text testID="no-data" style={styles.noDataText}>
+        No data available
+      </Text>
       <Text style={styles.noDataText}>
         check your internet connectin and try again
       </Text>
