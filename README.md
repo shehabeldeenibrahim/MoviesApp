@@ -2,7 +2,7 @@
 
 A cross-platform mobile app build using React-Native (Expo) that displays a list of movies fetched through  [TheMovieDB](https://developers.themoviedb.org/) API
 
-<img align="center" src="./gif.gif?raw=true" width="200px" />
+<img align="center" src="./screenshots/gif.gif?raw=true" width="200px" />
 
 # Features
 
@@ -20,7 +20,8 @@ A cross-platform mobile app build using React-Native (Expo) that displays a list
     ├── src                       # Source Code
     │   ├── Components            # Directory of Components used
         ├── Api            	      # Directory contains Api functions
-    │   └── Screens               # Directory of Screens used
+    │   ├── Screens               # Directory of Screens used
+    │   └── tests                 # Directory containing unit tests for each component
     ├── package.json              # List of Packages used in the project
     ├── app.json                  # Configuring parts of your app
     ├── App.js                    # Starting point of the app
