@@ -1,3 +1,4 @@
+import axios from "axios";
 import { ToastAndroid } from "react-native";
 
 /**
@@ -19,7 +20,7 @@ function showToast() {
  */
 export default async function getMovies(page) {
   try {
-    const response = await fetch(
+    const response = await axios(
       // Movies URL
       `http://api.themoviedb.org/3/discover/movie?api_key=28ae3e833077363150b565b2ab3160a7&page=${page}`,
       {}
@@ -28,8 +29,7 @@ export default async function getMovies(page) {
       showToast();
       console.log(e);
     });
-
-    const json = await response.json();
+    const json = await response.data.results;
     return json;
   } catch (error) {
     /* Error Handling */
