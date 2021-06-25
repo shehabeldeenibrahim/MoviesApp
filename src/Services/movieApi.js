@@ -1,5 +1,6 @@
 import axios from "axios";
 import { ToastAndroid } from "react-native";
+import { api_key } from "../../config";
 
 /**
  * Shows error toast message when error occurs
@@ -18,11 +19,11 @@ function showToast() {
  * @param  none
  * @return Json containing data retrieved from API
  */
-export default async function getMovies(page) {
+export async function getMovies(page) {
   try {
     const response = await axios(
       // Movies URL
-      `http://api.themoviedb.org/3/discover/movie?api_key=28ae3e833077363150b565b2ab3160a7&page=${page}`,
+      `http://api.themoviedb.org/3/discover/movie?api_key=${api_key}&page=${page}`,
       {}
     ).catch((e) => {
       /* Error Handling */
