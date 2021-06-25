@@ -52,7 +52,12 @@ describe("Movies List", () => {
     const eventData = {
       nativeEvent: {
         contentOffset: {
-          /* Change this to test */
+          /* Change this to test
+            y should be greater than the outcome of the following
+            equation:
+            contentHeight - (screenHeight+ 0.2 * screenHeight) + 1
+           */
+
           y: 500,
         },
         contentSize: {
