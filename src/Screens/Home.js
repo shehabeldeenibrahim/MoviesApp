@@ -7,7 +7,7 @@ import {
   StyleSheet,
   ToastAndroid,
 } from "react-native";
-import getMovies from "../Api/api";
+import getMovies from "../Services/movieApi";
 import MoviesList from "../Components/MoviesList";
 import NoData from "../Components/NoData";
 
@@ -22,7 +22,7 @@ const { height, width } = Dimensions.get("window");
  * @param  none
  */
 
-export default function Home() {
+export default function Home(props) {
   // States Declerations
 
   // State for loading indicator
@@ -71,10 +71,11 @@ export default function Home() {
 
       // Fetch first page from api
       // Call back
-      getMovies(1)
-        .then((data) => {
+      props
+        .getMovies()
+        .then((receivedData) => {
           // Set data array to be listed
-          setData(data.results);
+          setData(receivedData);
         })
         .catch((e) => {
           /* Error Handling */
@@ -114,7 +115,7 @@ export default function Home() {
       getMovies(page)
         .then((moreData) => {
           // Append new data to data state to be listed
-          setData([...data, ...moreData.results]);
+          setData([...data, ...moreData]);
 
           // Increment page number to fetch next page
           setPage(page + 1);
@@ -152,6 +153,7 @@ export default function Home() {
       {data && data.length ? (
         /* Render Our Movie Flatlist Component */
         <MoviesList
+          testID="dataArrived"
           retrieveMore={retrieveMore}
           data={data}
           refreshing={refreshing}
