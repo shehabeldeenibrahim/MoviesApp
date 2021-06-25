@@ -7,7 +7,7 @@ import {
   StyleSheet,
   ToastAndroid,
 } from "react-native";
-import getMovies from "../Services/movieApi";
+import { getMovies } from "../Services/movieApi";
 import MoviesList from "../Components/MoviesList";
 import NoData from "../Components/NoData";
 

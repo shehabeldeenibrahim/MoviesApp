@@ -5,7 +5,7 @@ import { Root, View } from "native-base";
 import * as Font from "expo-font";
 import { ActivityIndicator } from "react-native-paper";
 import { StatusBar } from "react-native";
-import getMovies from "./src/Services/movieApi";
+import { getMovies } from "./src/Services/movieApi";
 
 export default function App() {
   // States Declarations
