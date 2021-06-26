@@ -10,6 +10,16 @@ import {
 } from "@testing-library/react-native";
 import { data } from "../tests/MoviesDataMock";
 
+// mocks
+function returnPromise() {
+  return new Promise(function (resolve, reject) {
+    resolve(data);
+  });
+}
+function getMoviesMock() {
+  return returnPromise();
+}
+
 // intercept axios calls
 jest.mock("axios");
 
@@ -19,17 +29,10 @@ configure({ adapter: new Adapter() });
 // do clean up after each test
 afterEach(cleanup);
 
-describe("Home Screen", () => {
-  /* Test Rendering of props in DOM */
+// Tests
+describe("Home Screen tests", () => {
+  /* (TEST1) Test transition from no data to data retreived after api call */
   it("test transition from no data to data retreived after api call", async () => {
-    function returnPromise() {
-      return new Promise(function (resolve, reject) {
-        resolve(data);
-      });
-    }
-    function getMoviesMock() {
-      return returnPromise();
-    }
     const { findByTestId, queryByTestId, getByText, rerender, debug } = render(
       <Home getMovies={getMoviesMock} />
     );
@@ -55,15 +58,8 @@ describe("Home Screen", () => {
     expect(list).toBeDefined();
   });
 
+  /* (TEST2) Testing lazy loading activity indicator after scroll (full functionality) */
   it("testing lazy loading activity indicator after scroll (full functionality)", async () => {
-    function returnPromise() {
-      return new Promise(function (resolve, reject) {
-        resolve(data);
-      });
-    }
-    function getMoviesMock() {
-      return returnPromise();
-    }
     const { findByTestId, queryByTestId, rerender, debug } = render(
       <Home getMovies={getMoviesMock} />
     );
