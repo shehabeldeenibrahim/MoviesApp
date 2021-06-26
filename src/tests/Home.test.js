@@ -42,7 +42,7 @@ function rejectMoviesMock() {
   return rejectPromise();
 }
 
-// do clean up after each test
+// Do clean up after each test
 afterEach(cleanup);
 
 // Tests

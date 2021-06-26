@@ -8,6 +8,7 @@ npm-debug.*
 *.mobileprovision
 *.orig.*
 web-build/
-
+*.html
 # macOS
 .DS_Store
+src/tests/Api.test.js.notes
