@@ -21,8 +21,12 @@ describe("<MovieCard />", () => {
     const listRendered = getByTestId("title");
     expect(listRendered).toBeDefined();
 
-    /* Check the text rendered correctly */
-    const dataRendered = getByText("The Unholy");
+    /* Check the tile rendered correctly */
+    const titleRendered = getByText("The Unholy");
+    expect(titleRendered).toBeDefined();
+
+    /* Check the date rendered correctly */
+    const dataRendered = getByText("2021-03-31");
     expect(dataRendered).toBeDefined();
 
     /* Image URI */
