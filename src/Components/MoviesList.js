@@ -56,6 +56,7 @@ export default MovieList = ({ retrieveMore, data, refreshing, loading }) => {
       {/* Show loading indicator if loading set to true */}
       {loading ? (
         <ActivityIndicator
+          testID="activity-indicator"
           size="large"
           color="#87838B"
           style={styles.loading}
