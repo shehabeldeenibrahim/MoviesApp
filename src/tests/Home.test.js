@@ -10,21 +10,37 @@ import {
 } from "@testing-library/react-native";
 import { data } from "../tests/MoviesDataMock";
 
-// mocks
-function returnPromise() {
-  return new Promise(function (resolve, reject) {
-    resolve(data);
-  });
-}
-function getMoviesMock() {
-  return returnPromise();
-}
-
 // intercept axios calls
 jest.mock("axios");
 
 // enzyme configuration
 configure({ adapter: new Adapter() });
+
+/*  MOCK HELPER FUNCTIONS */
+
+function returnPromise() {
+  return new Promise(function (resolve, reject) {
+    /* Simulate success */
+    resolve(data);
+  });
+}
+
+/* Mock if movies Api fetched successfully */
+
+function getMoviesMock() {
+  return returnPromise();
+}
+function rejectPromise() {
+  return new Promise(function (resolve, reject) {
+    /* Simulate failure */
+    reject(data);
+  });
+}
+
+/* Mock if movies Api failed to fetch */
+function rejectMoviesMock() {
+  return rejectPromise();
+}
 
 // do clean up after each test
 afterEach(cleanup);
@@ -58,7 +74,27 @@ describe("Home Screen tests", () => {
     expect(list).toBeDefined();
   });
 
-  /* (TEST2) Testing lazy loading activity indicator after scroll (full functionality) */
+  /* (TEST2) Test in the case when API call fails */
+  it("test if api call failed", async () => {
+    const { getByText, rerender, debug } = render(
+      <Home getMovies={rejectMoviesMock} />
+    );
+
+    /* Check that NoData Component is rendered
+     when the component first renders before api call is done
+     and check that it is rendered correctly with given text
+    */
+    const dataRendered = getByText("No data available");
+    expect(dataRendered).toBeDefined();
+
+    /* Rerender and check again after API call is done */
+    rerender(<Home getMovies={rejectMoviesMock} />);
+
+    /* noData should still be rendered */
+    expect(dataRendered).toBeDefined();
+  });
+
+  /* (TEST3) Testing lazy loading activity indicator after scroll (full functionality) */
   it("testing lazy loading activity indicator after scroll (full functionality)", async () => {
     const { findByTestId, queryByTestId, rerender, debug } = render(
       <Home getMovies={getMoviesMock} />
